@@ -130,6 +130,7 @@ void War3HeroSkillViewerFrame::OpenFileMenuItemOnMenuSelection(wxCommandEvent & 
     return;
   }
 
+  hero_skill_list_ini_.Reset();
   if (!ParseHeroSkillListFile(open_file_dialog.GetPath().ToStdWstring())) {
     wxMessageBox(_("Can not load file [") + open_file_dialog.GetPath()+ wxS("]."));
     return;
@@ -149,7 +150,7 @@ void War3HeroSkillViewerFrame::Close_menuItem_OnMenuSelection(wxCommandEvent& WX
 
 void War3HeroSkillViewerFrame::AboutMenuItemOnMenuSelection(wxCommandEvent& WXUNUSED(event))
 {
-  wxMessageBox(wxS("Version 1.0.0\nAuthor: R-CO"), wxS("About..."));
+  wxMessageBox(wxString::Format(wxS("Version %s\nAuthor: R-CO"), APP_VERSION), wxS("About..."));
 }
 
 } // end of namespace "rco"
